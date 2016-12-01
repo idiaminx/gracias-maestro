@@ -1,0 +1,145 @@
+<html>
+<head>
+
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="txt/css" href="https://fonts.googleapis.com/css?family=Droid+Serif:bold">
+  <link rel="stylesheet" type="txt/css" href="/css/style.css"
+  <meta itemprop="image" content="img/se.gif">
+
+  <style>
+  label#form{float:left;margin-top:1px;width:100px;font-weight: bold;cursor:pointer;}
+
+  #social_btn li
+	{
+	display: inline;
+	float: right;
+	list-style-type: none;
+	padding-right: 10px;
+	}
+
+  </style>
+  <style>
+  h3 {
+  font-size: 36;
+  text-shadow: 4px 4px 4px #aaa;
+  }
+  #wrapper {
+  color: #929A8D;
+  widht: 600px;
+  height: 600px;
+  font-family: 'Droid Serif', serif;
+  font-size: 14px;
+
+  }
+  </style>
+
+  <script language="JavaScript" src="http://code.google.com/apis/gears/gears_init.js"></script>
+  <script language="JavaScript" src="http://ajax.googleapis.com/ajax/libs/prototype/1.6.1.0/prototype.js"></script>
+  <script language="JavaScript" src="http://ajax.googleapis.com/ajax/libs/scriptaculous/1.8.3/scriptaculous.js"></script>
+
+<script type="text/javascript">
+function getLocation(){
+  try{
+    var geo = google.gears.factory.create('beta.geolocation');
+    geo.getCurrentPosition(successCallback, errorCallback);
+  }
+  catch(e){
+    try{
+      navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+    }
+    catch(e){
+      errorCallback({code:2,message:e.message});
+    }
+  }
+}
+
+function errorCallback(err){}
+
+function successCallback(r){
+  new Ajax.Request('/geo5.php?lat=' + r.coords.latitude + '&lon=' + r.coords.longitude,{
+    method:'get',
+    onSuccess: function(transport){},
+    onFailure: function(){ alert('Failed to report location.') }
+  });
+}
+
+Event.observe(window, 'load',
+  function(){
+    getLocation();
+  }
+);</script>
+</head>
+</head>
+<body id="top">
+  <div id="layout_wrapper_outer">
+  <div id="layout_wrapper">
+
+    <div id="layout_top">
+
+      <div id="site_title">
+
+      	<table width="100%">
+      		<tr>
+      			<td width="40%">
+      				<a href="/svenska/"><img src="/img/se.gif" alt="logo"/></a>
+      			</td>
+      			<td style="margin-bottom:0;" align="right">
+				<div style="width:250px;height:73px;background:url(/img/socialbtn.gif);">
+				<ul id="social_btn" style="padding-top:44px;">
+					<li>
+						<div id="fb-root" ></div>
+						<script>(function(d, s, id) {
+						  var js, fjs = d.getElementsByTagName(s)[0];
+						  if (d.getElementById(id)) return;
+						  js = d.createElement(s); js.id = id;
+						  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+						  fjs.parentNode.insertBefore(js, fjs);
+						}(document, 'script', 'facebook-jssdk'));</script>
+						<div class="fb-like" data-href="http://www.facebook.com/GraciasTavarez" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false"></div>
+					</li>
+					<li>
+						<a href="http://twitter.com/share" data-url="http://www.gracias-maestro.tk" data-counturl="http://www.gracias-maestro.tk" data-text="Gracias Maestro | Dedicado al Maestro Tavarez, tćnico de la selección uruguaya de fútbol." class="twitter-share-button" data-count="none" data-via=""></a>
+						<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+					</li>
+					<li>
+						<!-- Place this tag where you want the +1 button to render -->
+						<g:plusone size="medium" annotation="none" href="http://www.gracias-maestro.tk"></g:plusone>
+
+						<!-- Place this render call where appropriate -->
+						<script type="text/javascript">
+						  (function() {
+							var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+							po.src = 'https://apis.google.com/js/plusone.js';
+							var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+						  })();
+						</script>
+					</li>
+					<li>
+						<!-- Place this tag where you want the su badge to render -->
+						<su:badge layout="4"></su:badge>
+
+						<!-- Place this snippet wherever appropriate -->
+						 <script type="text/javascript">
+						 (function() {
+							 var li = document.createElement('script'); li.type = 'text/javascript'; li.async = true;
+							  li.src = 'https://platform.stumbleupon.com/1/widgets.js';
+							  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(li, s);
+						 })();
+						 </script>
+					</li>
+				</ul>
+				</div>
+				<div style="clear:both;"></div>
+      			</td>
+      		</tr>
+      	</table>
+        </div></div></div></div></div>
+
+  <center><div id="wrapper">
+    {{ content }}
+    </div></center>
+
+</body></html>
