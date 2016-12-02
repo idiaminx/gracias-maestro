@@ -3,6 +3,10 @@
 # Edit theme's home layout instead if you wanna make some changes
 # See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 layout: default
+title: "¡Gracias Maestro!"
+description: "Esto maestro Oscar Washintong Tavárez es un reconocimiento a su gran labor como técnico<br>
+  de la selección uruguaya de fútbol durante tanto tiempo y con tan buenos resultados en <br>
+  lo deportivo y..."
 ---
 <h3>¡Gracias Maestro!</h3>
 <p>Esto maestro Oscar Washintong Tavárez es un reconocimiento a su gran labor como técnico<br>
