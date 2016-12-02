@@ -19,7 +19,7 @@ description: "Esto maestro Oscar Washintong Tavárez es un reconocimiento a su g
   de la selección uruguaya de fútbol durante tanto tiempo y con tan buenos resultados en
   lo deportivo y..."
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://idiaminx.github.io/gracias-maestro" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username:
 github_username:  idiaminx
 
