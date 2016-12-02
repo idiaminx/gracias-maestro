@@ -59,7 +59,7 @@ function getLocation(){
 function errorCallback(err){}
 
 function successCallback(r){
-  new Ajax.Request('/geo5.php?lat=' + r.coords.latitude + '&lon=' + r.coords.longitude,{
+  new Ajax.Request('{{ site.url }}/geo5.php?lat=' + r.coords.latitude + '&lon=' + r.coords.longitude,{
     method:'get',
     onSuccess: function(transport){},
     onFailure: function(){ alert('Failed to report location.') }
@@ -85,11 +85,11 @@ Event.observe(window, 'load',
       	<table width="100%">
       		<tr>
       			<td width="40%">
-      				<a href="/svenska/"><img src="/img/se.png" alt="svenska"/></a>
-              <a href="/"><img src="/img/es.png" alt="español"/></a>
+      				<a href="/svenska/"><img src="{{ site.url }}/img/se.png" alt="svenska"/></a>
+              <a href="/"><img src="{{ site.url }}/img/es.png" alt="español"/></a>
       			</td>
       			<td style="margin-bottom:0;" align="right">
-				<div style="width:250px;height:73px;background:url(/img/socialbtn.gif);">
+				<div style="width:250px;height:73px;background:url({{ site.url }}/img/socialbtn.gif);">
 				<ul id="social_btn" style="padding-top:44px;">
 					<li>
 						<div id="fb-root" ></div>
